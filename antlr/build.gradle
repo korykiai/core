@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'antlr'
+    id 'maven-publish'
+}
+
+group = 'ai.koryki.core'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // build with JDK 17
+    }
+    withSourcesJar() // Optional: Creates the sources JAR
+    withJavadocJar() // Optional: Creates the Javadoc JAR
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 8 // compile to Java 8 source+bytecode
+}
+
+dependencies {
+    antlr "org.antlr:antlr4:4.13.2" // use ANTLR version 4
+
+    testImplementation "ai.koryki.databases:databases:+" // use ANTLR version 4
+
+    testImplementation platform('org.junit:junit-bom:5.9.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+sourceSets.main.java.srcDirs += ['src/main/antlr']
+sourceSets.main.java.srcDirs += ['build/generated-src/antlr/main']
+
+tasks.named('sourcesJar').configure {
+    // Declares that 'sourcesJar' cannot run until 'generateGrammarSource' has finished.
+    dependsOn ':antlr:generateGrammarSource'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+generateGrammarSource {
+    generateGrammarSource.outputDirectory = file("build/generated-src/antlr/main/ai/koryki/antlr")
+    maxHeapSize = "128m"
+    arguments += ["-visitor", "-long-messages", "-package", "ai.koryki.antlr"]
+}
+
+jar {
+    // Set the strategy to EXCLUDE (keeps the first file encountered, ignores duplicates)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+sourcesJar {
+    // Set the strategy to EXCLUDE (keeps the first file encountered, ignores duplicates)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+publishing {
+    publications {
+        // Define the publication for this subproject
+        mavenJava(MavenPublication) {
+            // The 'java' component includes the main JAR artifact and its transitive dependencies
+            from components.java
+
+            // Optionally, override the artifact ID (defaults to project name: 'api')
+            // artifactId = 'my-api-client'
+        }
+    }
+}

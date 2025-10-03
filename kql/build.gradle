@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'ai.koryki.core'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // build with JDK 17
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 8 // compile to Java 8 source+bytecode
+}
+
+dependencies {
+    implementation project(':antlr')
+    implementation project(':model')
+    implementation project(':iql')
+
+    testImplementation "ai.koryki.databases:databases:+" // use ANTLR version 4
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.19.2")
+
+    testImplementation platform('org.junit:junit-bom:5.9.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        // Define the publication for this subproject
+        mavenJava(MavenPublication) {
+            // The 'java' component includes the main JAR artifact and its transitive dependencies
+            from components.java
+
+            // Optionally, override the artifact ID (defaults to project name: 'api')
+            // artifactId = 'my-api-client'
+        }
+    }
+}
+
