@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-rootProject.version = '1.0-SNAPSHOT'
+rootProject.version = '0.1.0'
 
 configurations {
     invoker
