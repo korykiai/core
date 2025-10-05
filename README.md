@@ -126,7 +126,7 @@ koryki.ai MCP-Server is implemented with the help of [https://github.com/modelco
 
 # Further information about koryki.ai
 
-- [Usage for **kql**](doc/kql_usage.md), see also northwind database samples
+- [Usage](doc/kql_usage.md), for **kql** see also northwind database samples
 - [Ruleset ](doc/RULESET.md "") to generate SQL-Statements
 - List for [Functions ](doc/FUNCTIONS.md "") in **kql**
 - [Instructions ](doc/ai_instructions.md "") for AI-systems
@@ -135,10 +135,10 @@ koryki.ai MCP-Server is implemented with the help of [https://github.com/modelco
 
 Demo: northwind database
 
-- database schema [image ](doc/northwind_schema.png ""),  [json ](doc/northwind_schema.json "")
-- entity model [image ](doc/northwind_model.png ""),   [json ](doc/northwind_model.json "")
-- link definitions [json ](doc/northwind_links.json "")
-- demo queries:
+- database schema [image](doc/northwind_schema.png ""),  [json ](doc/northwind_schema.json "")
+- entity model [image](doc/northwind_model.png ""),   [json ](doc/northwind_model.json "")
+- link definitions [json](doc/northwind_links.json "")
+- demo queries
   * [customers in germany ](doc/queries/customersingermany.kql "")
   * [customers with more than 10 orders in january 2023 ](doc/queries/customersmorethan10ordersin2023.kql "")
   * [customers optional with orders in 2023 ](doc/queries/customerswithordersin2023.kql "")
@@ -155,7 +155,7 @@ Demo MCP-Server
 
 Related gitlab projects
 
-- [databaes](https://gitlab.com/korykiai/databases "")
-- [h2](https://gitlab.com/korykiai/h2 "")
-- [demo](https://gitlab.com/korykiai/demo "")
+- [databases](https://gitlab.com/korykiai/databases "") sample databases for test and demonstration
+- [h2](https://gitlab.com/korykiai/h2 "") h2 database for test and demonstration
+- [demo](https://gitlab.com/korykiai/demo "") MCP-Server to demonstrate interaction
 
