@@ -1,0 +1,25 @@
+[versions]
+
+antlr = "4.13.2"
+jackson = "2.19.2"
+junit = "5.9.2"
+
+koryki-databases = "0.1.0"
+
+[plugins]
+
+antlr = { id = "org.gradle.antlr"}
+
+[libraries]
+
+antlr4 = { module = "org.antlr:antlr4", version.ref = "antlr" }
+
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" } # version comes from BOM
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" } # version comes from BOM
+
+koryki-databases = { module = "ai.koryki.databases:koryki-databases", version.ref = "koryki-databases" }
+
+[bundles]

@@ -1,0 +1,546 @@
+{
+  "name" : "northwind",
+  "comment" : null,
+  "description" : "The northwind database stores salaries for the northwind company.\nNorthwind sells products to other customer companies and buys products from supplier companies.\nNorthwind employees manage orders and ship products via shippers to customers.",
+  "entities" : [ {
+    "name" : "categories",
+    "comment" : "Organizes products into different categories.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "category_name",
+      "comment" : "Name of a category",
+      "description" : null
+    }, {
+      "name" : "description",
+      "comment" : "Description of a category",
+      "description" : null
+    }, {
+      "name" : "picture",
+      "comment" : "A picture to visualize the category",
+      "description" : null
+    } ]
+  }, {
+    "name" : "customers",
+    "comment" : "Contains information about the company's customers, with fields like company_name, contact_name.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "company_name",
+      "comment" : "The cusomers company name",
+      "description" : null
+    }, {
+      "name" : "contact_name",
+      "comment" : "Name of a contact person",
+      "description" : null
+    }, {
+      "name" : "contact_title",
+      "comment" : "The title or role the contact person has in the customer company (e.g. Owner, Sales Representative, Marketing Manager).",
+      "description" : null
+    }, {
+      "name" : "address",
+      "comment" : "The first address line of the customer.",
+      "description" : null
+    }, {
+      "name" : "city",
+      "comment" : "The city of the customer address.",
+      "description" : null
+    }, {
+      "name" : "region",
+      "comment" : "The region of the customer address.",
+      "description" : null
+    }, {
+      "name" : "postal_code",
+      "comment" : "The postal code of the customer address.",
+      "description" : null
+    }, {
+      "name" : "country",
+      "comment" : "The country of the customer address.",
+      "description" : null
+    }, {
+      "name" : "phone",
+      "comment" : "The telephone number to call the contact person.",
+      "description" : null
+    }, {
+      "name" : "fax",
+      "comment" : "The fax number to call the contact person.",
+      "description" : null
+    } ]
+  }, {
+    "name" : "customer_customer_demo",
+    "comment" : "Stores the relationships between customer and costomer demographics.",
+    "description" : null,
+    "properties" : [ ]
+  }, {
+    "name" : "customer_demographics",
+    "comment" : "A customer democraphics describes customer segments, e.g. Retail, Wholesale, Corporate, etc.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "customer_desc",
+      "comment" : "A description to the customer demographic.",
+      "description" : null
+    } ]
+  }, {
+    "name" : "employees",
+    "comment" : "Stores employee information, such as their names and titles.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "last_name",
+      "comment" : "Last name of employee.",
+      "description" : null
+    }, {
+      "name" : "first_name",
+      "comment" : "First name of employee.",
+      "description" : null
+    }, {
+      "name" : "title",
+      "comment" : "The title or role the employee has in the company",
+      "description" : null
+    }, {
+      "name" : "title_of_courtesy",
+      "comment" : "The employees courtesy",
+      "description" : null
+    }, {
+      "name" : "birth_date",
+      "comment" : "The employees date of birth.",
+      "description" : null
+    }, {
+      "name" : "hire_date",
+      "comment" : "The date the employee was hired.",
+      "description" : null
+    }, {
+      "name" : "address",
+      "comment" : "The address line of the employee.",
+      "description" : null
+    }, {
+      "name" : "city",
+      "comment" : "The city of the employee address",
+      "description" : null
+    }, {
+      "name" : "region",
+      "comment" : "The region of the employee address.",
+      "description" : null
+    }, {
+      "name" : "postal_code",
+      "comment" : "The postal code of the employee address.",
+      "description" : null
+    }, {
+      "name" : "country",
+      "comment" : "The country of the employee address",
+      "description" : null
+    }, {
+      "name" : "home_phone",
+      "comment" : "The telephone number of the employee.",
+      "description" : null
+    }, {
+      "name" : "extension",
+      "comment" : "",
+      "description" : null
+    }, {
+      "name" : "photo",
+      "comment" : "The portrait photo of the employee",
+      "description" : null
+    }, {
+      "name" : "notes",
+      "comment" : "Notes to the employee",
+      "description" : null
+    }, {
+      "name" : "reports_to",
+      "comment" : "A foreign key identifying the supervisor (employee) the employee is reporting to.",
+      "description" : null
+    }, {
+      "name" : "photo_path",
+      "comment" : "Path or URL to the photo",
+      "description" : null
+    } ]
+  }, {
+    "name" : "employee_territories",
+    "comment" : "Stores the relationships between employees and territories.",
+    "description" : null,
+    "properties" : [ ]
+  }, {
+    "name" : "orders",
+    "comment" : "Holds records of customer orders, including OrderID, OrderDate, and CustomerID.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "order_date",
+      "comment" : null,
+      "description" : null
+    }, {
+      "name" : "required_date",
+      "comment" : "The date the customer requires the order",
+      "description" : null
+    }, {
+      "name" : "shipped_date",
+      "comment" : "The date the order is shipped.",
+      "description" : null
+    }, {
+      "name" : "ship_via",
+      "comment" : "A foreign key identifying the shipper.",
+      "description" : null
+    }, {
+      "name" : "freight",
+      "comment" : "The shipping freight.",
+      "description" : null
+    }, {
+      "name" : "ship_name",
+      "comment" : "The name of the company to ship the order to.",
+      "description" : null
+    }, {
+      "name" : "ship_address",
+      "comment" : "The address of the company the ship goes to.",
+      "description" : null
+    }, {
+      "name" : "ship_city",
+      "comment" : "The city of the company the ship goes to.",
+      "description" : null
+    }, {
+      "name" : "ship_region",
+      "comment" : "The region of the company the ship goes to.",
+      "description" : null
+    }, {
+      "name" : "ship_postal_code",
+      "comment" : null,
+      "description" : "The postal code of the company the ship goes to."
+    }, {
+      "name" : "ship_country",
+      "comment" : null,
+      "description" : "The country of the company the ship goes to."
+    } ]
+  }, {
+    "name" : "order_details",
+    "comment" : "Links orders to products, detailing which products are included in each order.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "unit_price",
+      "comment" : "The unit price valid to the order.",
+      "description" : null
+    }, {
+      "name" : "quantity",
+      "comment" : "The quantity of the order.",
+      "description" : null
+    }, {
+      "name" : "discount",
+      "comment" : "The discount to the order.",
+      "description" : null
+    } ]
+  }, {
+    "name" : "products",
+    "comment" : "Stores details about products, including name, supplier, category, and unit price.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "product_name",
+      "comment" : "The name of the product.",
+      "description" : null
+    }, {
+      "name" : "quantity_per_unit",
+      "comment" : "The quantity per unit the product is sold.",
+      "description" : null
+    }, {
+      "name" : "unit_price",
+      "comment" : "The unit price the product is sold before discount.",
+      "description" : null
+    }, {
+      "name" : "units_in_stock",
+      "comment" : "The units in stock.",
+      "description" : null
+    }, {
+      "name" : "units_on_order",
+      "comment" : "The units on order.",
+      "description" : null
+    }, {
+      "name" : "reorder_level",
+      "comment" : "Minimum units on stock before ordering new products.",
+      "description" : null
+    }, {
+      "name" : "discontinued",
+      "comment" : "Signs whether the product is discontinued",
+      "description" : null
+    } ]
+  }, {
+    "name" : "region",
+    "comment" : "The region products are sold to.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "region_description",
+      "comment" : "A description to the region.",
+      "description" : null
+    } ]
+  }, {
+    "name" : "shippers",
+    "comment" : "Stores information to shippers.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "company_name",
+      "comment" : "The name of the shipping company.",
+      "description" : null
+    }, {
+      "name" : "phone",
+      "comment" : "The telephone number.",
+      "description" : null
+    } ]
+  }, {
+    "name" : "suppliers",
+    "comment" : "Stores information about suppliers delivering products.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "company_name",
+      "comment" : "The name of the suppliers company.",
+      "description" : null
+    }, {
+      "name" : "contact_name",
+      "comment" : "The name of the person to get in contact to the supplier.",
+      "description" : null
+    }, {
+      "name" : "contact_title",
+      "comment" : "The title or role of the person to get in contact to the supplier.",
+      "description" : null
+    }, {
+      "name" : "address",
+      "comment" : "Address of the contact person.",
+      "description" : null
+    }, {
+      "name" : "city",
+      "comment" : "City of the contact person.",
+      "description" : null
+    }, {
+      "name" : "region",
+      "comment" : "Region of the supplier.",
+      "description" : null
+    }, {
+      "name" : "postal_code",
+      "comment" : "Postal code of the supplier.",
+      "description" : null
+    }, {
+      "name" : "country",
+      "comment" : "Country for the supplier.",
+      "description" : null
+    }, {
+      "name" : "phone",
+      "comment" : "Telephone number of the contact person.",
+      "description" : null
+    }, {
+      "name" : "fax",
+      "comment" : "Fax number of the company.",
+      "description" : null
+    }, {
+      "name" : "homepage",
+      "comment" : "Homepage of the supplier company.",
+      "description" : null
+    } ]
+  }, {
+    "name" : "territories",
+    "comment" : "Stores Territories.",
+    "description" : null,
+    "properties" : [ {
+      "name" : "territory_description",
+      "comment" : "Description of the territory.",
+      "description" : null
+    } ]
+  }, {
+    "name" : "us_states",
+    "comment" : "Stores US states",
+    "description" : null,
+    "properties" : [ {
+      "name" : "state_name",
+      "comment" : "Name of the State.",
+      "description" : null
+    }, {
+      "name" : "state_abbr",
+      "comment" : "Abbreviation to the state.",
+      "description" : null
+    }, {
+      "name" : "state_region",
+      "comment" : "The states region.",
+      "description" : null
+    } ]
+  } ],
+  "links" : [ {
+    "name" : "root_category",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : false,
+    "pairs" : [ {
+      "start" : "categories",
+      "end" : "categories"
+    } ]
+  }, {
+    "name" : "same_order_details",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "order_details",
+      "end" : "order_details"
+    } ]
+  }, {
+    "name" : "same_customer_demographics",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "customer_customer_demo",
+      "end" : "customer_demographics"
+    }, {
+      "start" : "customer_demographics",
+      "end" : "customer_demographics"
+    } ]
+  }, {
+    "name" : "same_orders",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "order_details",
+      "end" : "orders"
+    }, {
+      "start" : "orders",
+      "end" : "orders"
+    } ]
+  }, {
+    "name" : "same_suppliers",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "products",
+      "end" : "suppliers"
+    }, {
+      "start" : "suppliers",
+      "end" : "suppliers"
+    } ]
+  }, {
+    "name" : "same_customers",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "customer_customer_demo",
+      "end" : "customers"
+    }, {
+      "start" : "customers",
+      "end" : "customers"
+    }, {
+      "start" : "orders",
+      "end" : "customers"
+    } ]
+  }, {
+    "name" : "same_categories",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "categories",
+      "end" : "categories"
+    }, {
+      "start" : "products",
+      "end" : "categories"
+    } ]
+  }, {
+    "name" : "same_customer_customer_demo",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "customer_customer_demo",
+      "end" : "customer_customer_demo"
+    } ]
+  }, {
+    "name" : "same_products",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "products",
+      "end" : "products"
+    }, {
+      "start" : "order_details",
+      "end" : "products"
+    } ]
+  }, {
+    "name" : "same_shippers",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "orders",
+      "end" : "shippers"
+    }, {
+      "start" : "shippers",
+      "end" : "shippers"
+    } ]
+  }, {
+    "name" : "same_employee_territories",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "employee_territories",
+      "end" : "employee_territories"
+    } ]
+  }, {
+    "name" : "same_region",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "territories",
+      "end" : "region"
+    }, {
+      "start" : "region",
+      "end" : "region"
+    } ]
+  }, {
+    "name" : "same_employees",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "employee_territories",
+      "end" : "employees"
+    }, {
+      "start" : "orders",
+      "end" : "employees"
+    }, {
+      "start" : "employees",
+      "end" : "employees"
+    } ]
+  }, {
+    "name" : "reports_to",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : false,
+    "pairs" : [ {
+      "start" : "employees",
+      "end" : "employees"
+    } ]
+  }, {
+    "name" : "parent_category",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : false,
+    "pairs" : [ {
+      "start" : "categories",
+      "end" : "categories"
+    } ]
+  }, {
+    "name" : "same_us_states",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "us_states",
+      "end" : "us_states"
+    } ]
+  }, {
+    "name" : "same_territories",
+    "comment" : null,
+    "description" : null,
+    "symmetric" : true,
+    "pairs" : [ {
+      "start" : "territories",
+      "end" : "territories"
+    }, {
+      "start" : "employee_territories",
+      "end" : "territories"
+    } ]
+  } ]
+}

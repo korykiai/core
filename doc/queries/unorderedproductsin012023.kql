@@ -1,0 +1,9 @@
+// Show products that have never been ordered in January 2023
+
+FIND products p
+WHERE NOT p.product_id IN (
+    FIND order_details od, od-orders o
+    WHERE o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-01-31'
+    RETURN od.product_id
+)
+RETURN p.product_name

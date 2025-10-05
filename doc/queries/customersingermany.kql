@@ -1,0 +1,5 @@
+// Show me all customers from Germany with their company names and contact information
+
+FIND customers c
+WHERE c.country = 'Germany'
+RETURN c.company_name, c.contact_name, c.city

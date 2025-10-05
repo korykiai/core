@@ -1,0 +1,1387 @@
+{
+  "name" : "northwind",
+  "comment" : null,
+  "description" : "The northwind database stores salaries for the northwind company.\nNorthwind sells products to other customer companies and buys products from supplier companies.\nNorthwind employees manage orders and ship products via shippers to customers.",
+  "tables" : [ {
+    "name" : "categories",
+    "comment" : "Organizes products into different categories.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "category_id",
+      "comment" : "A surrogate primary key that uniquely identifies a category.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "category_name",
+      "comment" : "Name of a category",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "description",
+      "comment" : "Description of a category",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "picture",
+      "comment" : "A picture to visualize the category",
+      "description" : null,
+      "type" : {
+        "name" : "binary large object",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "blob"
+      },
+      "nullable" : true
+    }, {
+      "name" : "root_category_id",
+      "comment" : null,
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false
+    }, {
+      "name" : "super_category_id",
+      "comment" : null,
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    } ]
+  }, {
+    "name" : "customers",
+    "comment" : "Contains information about the company's customers, with fields like company_name, contact_name.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "customer_id",
+      "comment" : "A surrogate primary key used to uniquely identify each customer.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "company_name",
+      "comment" : "The cusomers company name",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "contact_name",
+      "comment" : "Name of a contact person",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "contact_title",
+      "comment" : "The title or role the contact person has in the customer company (e.g. Owner, Sales Representative, Marketing Manager).",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "address",
+      "comment" : "The first address line of the customer.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "city",
+      "comment" : "The city of the customer address.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "region",
+      "comment" : "The region of the customer address.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "postal_code",
+      "comment" : "The postal code of the customer address.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "country",
+      "comment" : "The country of the customer address.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "phone",
+      "comment" : "The telephone number to call the contact person.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "fax",
+      "comment" : "The fax number to call the contact person.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    } ]
+  }, {
+    "name" : "customer_customer_demo",
+    "comment" : "Stores the relationships between customer and costomer demographics.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "customer_id",
+      "comment" : "A foreign key identifying the customer.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "customer_type_id",
+      "comment" : "A foreign key identifying the customer demographic.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false,
+      "pkPos" : 2
+    } ]
+  }, {
+    "name" : "customer_demographics",
+    "comment" : "A customer democraphics describes customer segments, e.g. Retail, Wholesale, Corporate, etc.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "customer_type_id",
+      "comment" : "A surrogate primary key used to uniquely identify each customer demographic.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "customer_desc",
+      "comment" : "A description to the customer demographic.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    } ]
+  }, {
+    "name" : "employees",
+    "comment" : "Stores employee information, such as their names and titles.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "employee_id",
+      "comment" : "A surrogate primary key used to uniquely identify each employee.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "last_name",
+      "comment" : "Last name of employee.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "first_name",
+      "comment" : "First name of employee.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "title",
+      "comment" : "The title or role the employee has in the company",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "title_of_courtesy",
+      "comment" : "The employees courtesy",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "birth_date",
+      "comment" : "The employees date of birth.",
+      "description" : null,
+      "type" : {
+        "name" : "date",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "date"
+      },
+      "nullable" : true
+    }, {
+      "name" : "hire_date",
+      "comment" : "The date the employee was hired.",
+      "description" : null,
+      "type" : {
+        "name" : "date",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "date"
+      },
+      "nullable" : true
+    }, {
+      "name" : "address",
+      "comment" : "The address line of the employee.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "city",
+      "comment" : "The city of the employee address",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "region",
+      "comment" : "The region of the employee address.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "postal_code",
+      "comment" : "The postal code of the employee address.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "country",
+      "comment" : "The country of the employee address",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "home_phone",
+      "comment" : "The telephone number of the employee.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "extension",
+      "comment" : "",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "photo",
+      "comment" : "The portrait photo of the employee",
+      "description" : null,
+      "type" : {
+        "name" : "binary large object",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "blob"
+      },
+      "nullable" : true
+    }, {
+      "name" : "notes",
+      "comment" : "Notes to the employee",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "reports_to",
+      "comment" : "A foreign key identifying the supervisor (employee) the employee is reporting to.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "photo_path",
+      "comment" : "Path or URL to the photo",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    } ]
+  }, {
+    "name" : "employee_territories",
+    "comment" : "Stores the relationships between employees and territories.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "employee_id",
+      "comment" : "A foreign key identifying the employee.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "territory_id",
+      "comment" : "A foreign key identifying the territory.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false,
+      "pkPos" : 2
+    } ]
+  }, {
+    "name" : "orders",
+    "comment" : "Holds records of customer orders, including OrderID, OrderDate, and CustomerID.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "order_id",
+      "comment" : "A surrogate primary key used to uniquely identify each order.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "customer_id",
+      "comment" : "A foreign key identifying the customer.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "employee_id",
+      "comment" : "A foreign key identifying the employee.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "order_date",
+      "comment" : null,
+      "description" : null,
+      "type" : {
+        "name" : "date",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "date"
+      },
+      "nullable" : true
+    }, {
+      "name" : "required_date",
+      "comment" : "The date the customer requires the order",
+      "description" : null,
+      "type" : {
+        "name" : "date",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "date"
+      },
+      "nullable" : true
+    }, {
+      "name" : "shipped_date",
+      "comment" : "The date the order is shipped.",
+      "description" : null,
+      "type" : {
+        "name" : "date",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "date"
+      },
+      "nullable" : true
+    }, {
+      "name" : "ship_via",
+      "comment" : "A foreign key identifying the shipper.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "freight",
+      "comment" : "The shipping freight.",
+      "description" : null,
+      "type" : {
+        "name" : "real",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "real"
+      },
+      "nullable" : true
+    }, {
+      "name" : "ship_name",
+      "comment" : "The name of the company to ship the order to.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "ship_address",
+      "comment" : "The address of the company the ship goes to.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "ship_city",
+      "comment" : "The city of the company the ship goes to.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "ship_region",
+      "comment" : "The region of the company the ship goes to.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "ship_postal_code",
+      "comment" : null,
+      "description" : "The postal code of the company the ship goes to.",
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "ship_country",
+      "comment" : null,
+      "description" : "The country of the company the ship goes to.",
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    } ]
+  }, {
+    "name" : "order_details",
+    "comment" : "Links orders to products, detailing which products are included in each order.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "order_id",
+      "comment" : "A foreign key identifying the order.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "product_id",
+      "comment" : "A foreign key identifying the product.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 2
+    }, {
+      "name" : "unit_price",
+      "comment" : "The unit price valid to the order.",
+      "description" : null,
+      "type" : {
+        "name" : "real",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "real"
+      },
+      "nullable" : false
+    }, {
+      "name" : "quantity",
+      "comment" : "The quantity of the order.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false
+    }, {
+      "name" : "discount",
+      "comment" : "The discount to the order.",
+      "description" : null,
+      "type" : {
+        "name" : "real",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "real"
+      },
+      "nullable" : false
+    } ]
+  }, {
+    "name" : "products",
+    "comment" : "Stores details about products, including name, supplier, category, and unit price.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "product_id",
+      "comment" : "A surrogate primary key used to uniquely identify each product.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "product_name",
+      "comment" : "The name of the product.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "supplier_id",
+      "comment" : "A foreign key identifying the supplier.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "category_id",
+      "comment" : "A foreign key identifying the category.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "quantity_per_unit",
+      "comment" : "The quantity per unit the product is sold.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "unit_price",
+      "comment" : "The unit price the product is sold before discount.",
+      "description" : null,
+      "type" : {
+        "name" : "real",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "real"
+      },
+      "nullable" : true
+    }, {
+      "name" : "units_in_stock",
+      "comment" : "The units in stock.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "units_on_order",
+      "comment" : "The units on order.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "reorder_level",
+      "comment" : "Minimum units on stock before ordering new products.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : true
+    }, {
+      "name" : "discontinued",
+      "comment" : "Signs whether the product is discontinued",
+      "description" : null,
+      "type" : {
+        "name" : "integer",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "integer"
+      },
+      "nullable" : false
+    } ]
+  }, {
+    "name" : "region",
+    "comment" : "The region products are sold to.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "region_id",
+      "comment" : "A surrogate primary key used to uniquely identify each region.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "region_description",
+      "comment" : "A description to the region.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    } ]
+  }, {
+    "name" : "shippers",
+    "comment" : "Stores information to shippers.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "shipper_id",
+      "comment" : "A surrogate primary key used to uniquely identify each shipper.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "company_name",
+      "comment" : "The name of the shipping company.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "phone",
+      "comment" : "The telephone number.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    } ]
+  }, {
+    "name" : "suppliers",
+    "comment" : "Stores information about suppliers delivering products.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "supplier_id",
+      "comment" : "A surrogate primary key used to uniquely identify each supplier.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false
+    }, {
+      "name" : "company_name",
+      "comment" : "The name of the suppliers company.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "contact_name",
+      "comment" : "The name of the person to get in contact to the supplier.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "contact_title",
+      "comment" : "The title or role of the person to get in contact to the supplier.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "address",
+      "comment" : "Address of the contact person.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "city",
+      "comment" : "City of the contact person.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "region",
+      "comment" : "Region of the supplier.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "postal_code",
+      "comment" : "Postal code of the supplier.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "country",
+      "comment" : "Country for the supplier.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "phone",
+      "comment" : "Telephone number of the contact person.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "fax",
+      "comment" : "Fax number of the company.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "homepage",
+      "comment" : "Homepage of the supplier company.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    } ]
+  }, {
+    "name" : "territories",
+    "comment" : "Stores Territories.",
+    "description" : null,
+    "columns" : [ {
+      "name" : "territory_id",
+      "comment" : "A surrogate primary key used to uniquely identify each territory.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false,
+      "pkPos" : 1
+    }, {
+      "name" : "territory_description",
+      "comment" : "Description of the territory.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : false
+    }, {
+      "name" : "region_id",
+      "comment" : "A foreign key identifying the region.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false
+    } ]
+  }, {
+    "name" : "us_states",
+    "comment" : "Stores US states",
+    "description" : null,
+    "columns" : [ {
+      "name" : "state_id",
+      "comment" : "A surrogate primary key used to uniquely identify each us state.",
+      "description" : null,
+      "type" : {
+        "name" : "smallint",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "smallint"
+      },
+      "nullable" : false
+    }, {
+      "name" : "state_name",
+      "comment" : "Name of the State.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "state_abbr",
+      "comment" : "Abbreviation to the state.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    }, {
+      "name" : "state_region",
+      "comment" : "The states region.",
+      "description" : null,
+      "type" : {
+        "name" : "character varying",
+        "comment" : null,
+        "description" : null,
+        "datatype" : "varchar"
+      },
+      "nullable" : true
+    } ]
+  } ],
+  "relations" : [ {
+    "name" : "pk_categories",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "categories",
+    "endTable" : "categories",
+    "symmetric" : true,
+    "startColumns" : [ "category_id" ],
+    "endColumns" : [ "category_id" ]
+  }, {
+    "name" : "fk_categories_categories_root",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "categories",
+    "endTable" : "categories",
+    "symmetric" : false,
+    "startColumns" : [ "root_category_id" ],
+    "endColumns" : [ "category_id" ]
+  }, {
+    "name" : "fk_categories_categories_super",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "categories",
+    "endTable" : "categories",
+    "symmetric" : false,
+    "startColumns" : [ "super_category_id" ],
+    "endColumns" : [ "category_id" ]
+  }, {
+    "name" : "pk_customers",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "customers",
+    "endTable" : "customers",
+    "symmetric" : true,
+    "startColumns" : [ "customer_id" ],
+    "endColumns" : [ "customer_id" ]
+  }, {
+    "name" : "pk_customer_customer_demo",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "customer_customer_demo",
+    "endTable" : "customer_customer_demo",
+    "symmetric" : true,
+    "startColumns" : [ "customer_id", "customer_type_id" ],
+    "endColumns" : [ "customer_id", "customer_type_id" ]
+  }, {
+    "name" : "fk_customer_customer_demo_customers",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "customer_customer_demo",
+    "endTable" : "customers",
+    "symmetric" : true,
+    "startColumns" : [ "customer_id" ],
+    "endColumns" : [ "customer_id" ]
+  }, {
+    "name" : "fk_customer_customer_demo_customer_demographics",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "customer_customer_demo",
+    "endTable" : "customer_demographics",
+    "symmetric" : true,
+    "startColumns" : [ "customer_type_id" ],
+    "endColumns" : [ "customer_type_id" ]
+  }, {
+    "name" : "pk_customer_demographics",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "customer_demographics",
+    "endTable" : "customer_demographics",
+    "symmetric" : true,
+    "startColumns" : [ "customer_type_id" ],
+    "endColumns" : [ "customer_type_id" ]
+  }, {
+    "name" : "pk_employees",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "employees",
+    "endTable" : "employees",
+    "symmetric" : true,
+    "startColumns" : [ "employee_id" ],
+    "endColumns" : [ "employee_id" ]
+  }, {
+    "name" : "fk_employees_employees",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "employees",
+    "endTable" : "employees",
+    "symmetric" : false,
+    "startColumns" : [ "reports_to" ],
+    "endColumns" : [ "employee_id" ]
+  }, {
+    "name" : "pk_employee_territories",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "employee_territories",
+    "endTable" : "employee_territories",
+    "symmetric" : true,
+    "startColumns" : [ "employee_id", "territory_id" ],
+    "endColumns" : [ "employee_id", "territory_id" ]
+  }, {
+    "name" : "fk_employee_territories_employees",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "employee_territories",
+    "endTable" : "employees",
+    "symmetric" : true,
+    "startColumns" : [ "employee_id" ],
+    "endColumns" : [ "employee_id" ]
+  }, {
+    "name" : "fk_employee_territories_territories",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "employee_territories",
+    "endTable" : "territories",
+    "symmetric" : true,
+    "startColumns" : [ "territory_id" ],
+    "endColumns" : [ "territory_id" ]
+  }, {
+    "name" : "pk_orders",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "orders",
+    "endTable" : "orders",
+    "symmetric" : true,
+    "startColumns" : [ "order_id" ],
+    "endColumns" : [ "order_id" ]
+  }, {
+    "name" : "fk_orders_customers",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "orders",
+    "endTable" : "customers",
+    "symmetric" : true,
+    "startColumns" : [ "customer_id" ],
+    "endColumns" : [ "customer_id" ]
+  }, {
+    "name" : "fk_orders_employees",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "orders",
+    "endTable" : "employees",
+    "symmetric" : true,
+    "startColumns" : [ "employee_id" ],
+    "endColumns" : [ "employee_id" ]
+  }, {
+    "name" : "fk_orders_shippers",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "orders",
+    "endTable" : "shippers",
+    "symmetric" : true,
+    "startColumns" : [ "ship_via" ],
+    "endColumns" : [ "shipper_id" ]
+  }, {
+    "name" : "pk_order_details",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "order_details",
+    "endTable" : "order_details",
+    "symmetric" : true,
+    "startColumns" : [ "order_id", "product_id" ],
+    "endColumns" : [ "order_id", "product_id" ]
+  }, {
+    "name" : "fk_order_details_orders",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "order_details",
+    "endTable" : "orders",
+    "symmetric" : true,
+    "startColumns" : [ "order_id" ],
+    "endColumns" : [ "order_id" ]
+  }, {
+    "name" : "fk_order_details_products",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "order_details",
+    "endTable" : "products",
+    "symmetric" : true,
+    "startColumns" : [ "product_id" ],
+    "endColumns" : [ "product_id" ]
+  }, {
+    "name" : "pk_products",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "products",
+    "endTable" : "products",
+    "symmetric" : true,
+    "startColumns" : [ "product_id" ],
+    "endColumns" : [ "product_id" ]
+  }, {
+    "name" : "fk_products_categories",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "products",
+    "endTable" : "categories",
+    "symmetric" : true,
+    "startColumns" : [ "category_id" ],
+    "endColumns" : [ "category_id" ]
+  }, {
+    "name" : "fk_products_suppliers",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "products",
+    "endTable" : "suppliers",
+    "symmetric" : true,
+    "startColumns" : [ "supplier_id" ],
+    "endColumns" : [ "supplier_id" ]
+  }, {
+    "name" : "pk_region",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "region",
+    "endTable" : "region",
+    "symmetric" : true,
+    "startColumns" : [ "region_id" ],
+    "endColumns" : [ "region_id" ]
+  }, {
+    "name" : "pk_shippers",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "shippers",
+    "endTable" : "shippers",
+    "symmetric" : true,
+    "startColumns" : [ "shipper_id" ],
+    "endColumns" : [ "shipper_id" ]
+  }, {
+    "name" : "pk_suppliers",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "suppliers",
+    "endTable" : "suppliers",
+    "symmetric" : true,
+    "startColumns" : [ "supplier_id" ],
+    "endColumns" : [ "supplier_id" ]
+  }, {
+    "name" : "pk_territories",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "territories",
+    "endTable" : "territories",
+    "symmetric" : true,
+    "startColumns" : [ "territory_id" ],
+    "endColumns" : [ "territory_id" ]
+  }, {
+    "name" : "fk_territories_region",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "territories",
+    "endTable" : "region",
+    "symmetric" : true,
+    "startColumns" : [ "region_id" ],
+    "endColumns" : [ "region_id" ]
+  }, {
+    "name" : "pk_usstates",
+    "comment" : null,
+    "description" : null,
+    "startTable" : "us_states",
+    "endTable" : "us_states",
+    "symmetric" : true,
+    "startColumns" : [ "state_id" ],
+    "endColumns" : [ "state_id" ]
+  } ]
+}

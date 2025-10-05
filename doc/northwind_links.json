@@ -1,0 +1,19 @@
+{
+  "parent_category" : [ "fk_categories_categories_super" ],
+  "reports_to" : [ "fk_employees_employees" ],
+  "root_category" : [ "fk_categories_categories_root" ],
+  "same_category" : [ "fk_products_categories", "pk_categories" ],
+  "same_customer" : [ "fk_customer_customer_demo_customers", "fk_orders_customers", "pk_customers" ],
+  "same_customer_customer_demo" : [ "pk_customer_customer_demo" ],
+  "same_customer_demographic" : [ "fk_customer_customer_demo_customer_demographics", "pk_customer_demographics" ],
+  "same_employee" : [ "fk_employee_territories_employees", "fk_orders_employees", "pk_employees" ],
+  "same_employee_territory" : [ "pk_employee_territories" ],
+  "same_order" : [ "fk_order_details_orders", "pk_orders" ],
+  "same_order_detail" : [ "pk_order_details" ],
+  "same_product" : [ "fk_order_details_products", "pk_products" ],
+  "same_region" : [ "fk_territories_region", "pk_region" ],
+  "same_shipper" : [ "fk_orders_shippers", "pk_shippers" ],
+  "same_supplier" : [ "fk_products_suppliers", "pk_suppliers" ],
+  "same_territory" : [ "fk_employee_territories_territories", "pk_territories" ],
+  "same_us_state" : [ "pk_usstates" ]
+}

@@ -1,0 +1,4 @@
+// Find orders and return min and max orderdate
+
+FIND orders o
+RETURN min(o.order_date), max(o.order_date)

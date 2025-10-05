@@ -1,0 +1,6 @@
+//
+
+FIND employees e, e+orders o
+WHERE o.order_date > DATE '2024-05-01'
+RETURN e.last_name, e.first_name, count(o) c
+ORDER c DESC
