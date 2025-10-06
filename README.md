@@ -1,26 +1,26 @@
 # koryki.ai/core
 
 koryki.ai/core library improves the interaction of business users with relational databases for searches and data analysis
-assisted by Large Language Models (LLM)
-to translate natural language to machine-executable statements.
+assisted by Large Language Models (LLM).
 
-By introducing an easy-to-understand and easily verifiable query language (KQL), users remain in the driver's seat.
-Build trustworthy and reliable systems to get verifiable results.
+By introducing an easy-to-understand and easily verifiable query language (**kql**), users remain in the driver's seat.
 
 ![reduce uncertainty by introduction of kql](doc/shift_control.svg)
 
-KQL avoids the ambiguities and redundancy of SQL, and it has a concise grammar, making it easy to learn.
+**kql** avoids the ambiguities and redundancy of SQL. **kql** has a concise grammar, making it easy to learn.
 
 Further measures to reduce the complexity users face during data analysis:
 
 - introducing a business model on top of the database schema using business terms instead of exposing database internals.
 - labeling entity relations to hide join criteria
+- skip details that humans have in mind or AI models already know from context or do not need to know.
 - hide database techniques for optimization, like partitioned tables, function-based indexes,
   precalculated values like soundex, etc.
 
 Each step of abstraction with determined processing reduces the complexity visible to users and LLMs.
 These determined processes can be handled reliably by SQL generation.
-This results in a reduction of complexity that users need to understand and validate. It also reduces the effort for LLMs to calculate.
+This makes it easier for users to understand and verify the queries to be executed.
+It also reduces the effort for LLMs to calculate.
 
 
 
@@ -37,14 +37,7 @@ With the help of the koryki.ai MCP–Server, users can gain read access to datab
 
 
 
-The primary task of the koryki.ai MCP-Server is to bridge the gap between simplified queries, easy to use by humans, and
-AI models and the formal languages for relational databases (SQL).
-
-Easy to use implies:
-- easy to read and write by humans and AI models,
-  brief and clear,
-  focus on essentials, use terms from the business domain, and skip details that humans have in mind or AI models already know from context or do not need to know.
-- easy to understand and validate by humans.
+The primary task of the koryki.ai MCP-Server is to bridge the gap between queries in **kql**-form and the formal languages for relational databases (SQL).
 
 For this purpose, koryki.ai introduces two query languages:
 * **kql**: korykiai query language aims to formulate queries in an easily understandable form.
@@ -63,7 +56,7 @@ User enters:
     Find customers who have placed more than 10 orders in January 2023,
     return companyname and count, sort by count.
 
-With the help of published resources about koryki.ai, **kql**, and the entity-relationship model
+With the help of published resources about koryki.ai, **kql**-grammar, and the entity-relationship model
 AI may create a query in **kql**-form:
 
     FIND customers c, c-orders o
