@@ -43,7 +43,7 @@ AI models and the formal languages for relational databases (SQL).
 Easy to use implies:
 - easy to read and write by humans and AI models,
   brief and clear,
-  Focus on essentials, use terms from the business domain, and skip details that humans have in mind or AI models already know from context or do not need to know.
+  focus on essentials, use terms from the business domain, and skip details that humans have in mind or AI models already know from context or do not need to know.
 - easy to understand and validate by humans.
 
 For this purpose, koryki.ai introduces two query languages:
