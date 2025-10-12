@@ -1,8 +1,8 @@
 # MCP-Server
 
-## gitlab project
+## github project
 
-Sourcecode for MCP-Server is located in here: [demo](https://gitlab.com/korykiai/demo "").
+Sourcecode for MCP-Server is located in here: [demo](https://github.com/korykiai/demo "").
 
 ## Claude Desktop
 
