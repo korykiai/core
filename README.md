@@ -146,9 +146,9 @@ Demo MCP-Server
 - [MCP-Server Installation](./doc/MCP_SERVER.md "")
 
 
-Related gitlab projects
+Related github projects
 
-- [databases](https://gitlab.com/korykiai/databases "") sample databases for test and demonstration
-- [h2](https://gitlab.com/korykiai/h2 "") h2 database for test and demonstration
-- [demo](https://gitlab.com/korykiai/demo "") MCP-Server to demonstrate interaction
+- [databases](https://github.com/korykiai/databases "") sample databases for test and demonstration
+- [h2](https://github.com/korykiai/h2 "") h2 database for test and demonstration
+- [demo](https://github.com/korykiai/demo "") MCP-Server to demonstrate interaction
 
