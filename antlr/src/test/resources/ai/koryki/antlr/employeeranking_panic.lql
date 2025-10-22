@@ -5,9 +5,9 @@
 
 WITH sales AS (
 FIND orders o, o-order_details d
-RETURN sum(d.unit_price * d.quantity) sum
+FILTER sum(d.unit_price * d.quantity) sum
 ORDERx sum DESC
 LIMIT 1
 )
 FIND employees e, e-sales s
-RETURN e.last_name, e.first_name, e.home_phone
+FETCH e.last_name, e.first_name, e.home_phone

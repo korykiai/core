@@ -13,8 +13,8 @@ Sample, move `o.order_data BETWEEN DATE '2023-01-01' AND DATE '2023-12-31'` to e
     // give customers and optional count of orders in 2023
 
     FIND customers c, c+orders o
-    WHERE o.order_data BETWEEN DATE '2023-01-01' AND DATE '2023-12-31'
-    RETURN c.company_name, count(o)
+    FILTER o.order_data BETWEEN DATE '2023-01-01' AND DATE '2023-12-31'
+    FETCH c.company_name, count(o)
 
  Expected SQL is:
 
@@ -63,8 +63,8 @@ Sample, move expression form filter to HAVING-Clause for aggregat RETURN-express
     // return companyname and count, sort by count.
     
     FIND customers c, c-orders o
-    WHERE count(o) > 10 AND o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-12-31'
-    RETURN c.company_name, count(o)
+    FILTER count(o) > 10 AND o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-12-31'
+    FETCH c.company_name, count(o)
     ORDER count(o) DESC
 
 Now we have an INNER-JOIN. We search for customers with more than 10 orders.
@@ -110,12 +110,12 @@ Another sample:
     
     WITH sales AS (
     FIND orders o, o-order_details d
-    RETURN sum(d.unit_price * d.quantity) sum
+    FILTER sum(d.unit_price * d.quantity) sum
     ORDER sum DESC
     LIMIT 1
     )
     FIND employees e, e-sales s
-    RETURN e.last_name, e.first_name, e.home_phone
+    FETCH e.last_name, e.first_name, e.home_phone
 
 We have a `sales` queryblock and it is linked to `employee`. We need an extra RETURN of `o.employee_id` from queryblock
 `sales` to make the JOIN-Clause working.

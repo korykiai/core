@@ -31,7 +31,7 @@ set : set SET_INTERSECT set
 ;
 
 select
- : FIND table (COMMA link)* whereClause? returnClause? (ORDER (order) (COMMA order)*)? limitClause?
+ : FIND table (COMMA link)* filterClause? fetchClause? (ORDER (order) (COMMA order)*)? limitClause?
 ;
 
 link
@@ -45,8 +45,8 @@ table
  : name=ID alias=ID
 ;
 
-whereClause
- : WHERE logical_expression
+filterClause
+ : FILTER logical_expression
 ;
 
 order : (expression | header) (ASC | DESC)?;
@@ -84,11 +84,11 @@ operator
 | custom=STRING
 ;
 
-returnClause
- : RETURN returnItem (COMMA returnItem)*
+fetchClause
+ : FETCH fetchItem (COMMA fetchItem)*
 ;
 
-returnItem
+fetchItem
  : expression (h=ID)?
 ;
 
@@ -133,8 +133,8 @@ LIMIT : 'LIMIT';
 DESC : 'DESC';
 ASC : 'ASC';
 FIND : 'FIND';
-WHERE : 'WHERE';
-RETURN : 'RETURN';
+FILTER : 'FILTER';
+FETCH : 'FETCH';
 AND : 'AND';
 OR : 'OR';
 NOT : 'NOT';

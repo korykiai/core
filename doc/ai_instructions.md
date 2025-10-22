@@ -33,12 +33,12 @@ For example kql doesn't support NOT IN operator directly.
 Instead, logical expressions do support negation. Here is a running example:
 
     FIND products p
-    WHERE NOT p.product_id IN (
+    FILTER NOT p.product_id IN (
      FIND order_details od, od-orders o
-     WHERE o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-01-31'
-     RETURN od.product_id
+     FILTER o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-01-31'
+     FETCH od.product_id
     )
-    RETURN p.product_name
+    FETCH p.product_name
 
 
 
@@ -51,10 +51,10 @@ It requires a custom query language called **kql**.
   defines a directed graf of searched objects. FIND is always followed by an entity and an entityalias like: orders o.
   Optionally followed by a colon separated list of links like: orders o, o-customers c, o-products p
 
-- WHERE
+- FILTER
   defines a logical expression
 
-- RETURN
+- FETCH
   a colon separated list of output-expressions
 
 Additionally, there are more keywords for special cases
@@ -83,20 +83,20 @@ Giving an example:
 The first entity is just the entitytype followed by an unique shortterm, often just the first character.
 Entities and alias always use lowercase.
 
-## How to use WHERE keyword
+## How to use FILTER keyword
 
-After keyword WHERE we define one logical expression. Again an example:
+After keyword FILTER we define one logical expression. Again an example:
 
-    WHERE p.product_name like 'A*' and o.order_date BETWEEN DATE '2025-01-01' AND DATE '2025-01-01' 
+    FILTER p.product_name like 'A*' and o.order_date BETWEEN DATE '2025-01-01' AND DATE '2025-01-01' 
 
 We reference the aliases defined in FIND-Clause followed by '.' and propertyname, also always lowercase.
 We use SQL-like expression syntax.
 
-## How to use RETURN keyword
+## How to use FETCH keyword
 
-After the third keyword RETURN we define a comma separated list for output. Given an example:
+After the third keyword FETCH we define a comma separated list for output. Given an example:
 
-    RETURN p.product_name, d.unit_price * d.quantity
+    FETCH p.product_name, d.unit_price * d.quantity
 
 As shown here we can use expressions too.
 
