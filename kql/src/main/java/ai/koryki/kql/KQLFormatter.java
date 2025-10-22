@@ -102,13 +102,13 @@ public class KQLFormatter {
         if (select.whereClause() != null) {
             String where = toLogicalNode(select.whereClause().logical_expression(), indent);
             if (where.length() > 0) {
-                b.append(indent(indent) + "WHERE " + where);
+                b.append(indent(indent) + "FILTER " + where);
                 b.append(System.lineSeparator());
             }
         }
         String ret = select.returnClause().returnItem().stream().map(r -> toOut(r, indent)).collect(Collectors.joining(", "));
         if (ret.length() > 0) {
-            b.append(indent(indent) + "RETURN " + ret);
+            b.append(indent(indent) + "FETCH " + ret);
             b.append(System.lineSeparator());
         }
 
