@@ -127,7 +127,7 @@ public class KQL2Bean {
             node = Normalizer.normalize(node);
             bean.setFilter(node);
         }
-        if (select.filterClause() != null) {
+        if (select.fetchClause() != null) {
             int idx = 1;
             for (KQLParser.FetchItemContext r : select.fetchClause().fetchItem()) {
                 Out o = toOut(r, idx);
