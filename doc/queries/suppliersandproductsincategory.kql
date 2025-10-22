@@ -1,5 +1,5 @@
 // Find suppliers and count how many products they supply in each category
 
 FIND suppliers s, s-supplier_id-products p, p-category_id-categories c
-RETURN s.company_name, c.category_name, count(p.product_id) product_count
+FETCH s.company_name, c.category_name, count(p.product_id) product_count
 ORDER s.company_name, c.category_name

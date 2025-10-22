@@ -2,6 +2,6 @@
 // return companyname and count, sort by count.
 
 FIND customers c, c-orders o
-WHERE count(o) > 10 AND o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-12-31'
-RETURN c.company_name, count(o)
+FILTER count(o) > 10 AND o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-12-31'
+FETCH c.company_name, count(o)
 ORDER count(o) DESC
