@@ -99,14 +99,14 @@ public class KQLFormatter {
             b.append(", "+  l.toString());
         }
         b.append(System.lineSeparator());
-        if (select.whereClause() != null) {
-            String where = toLogicalNode(select.whereClause().logical_expression(), indent);
+        if (select.filterClause() != null) {
+            String where = toLogicalNode(select.filterClause().logical_expression(), indent);
             if (where.length() > 0) {
                 b.append(indent(indent) + "FILTER " + where);
                 b.append(System.lineSeparator());
             }
         }
-        String ret = select.returnClause().returnItem().stream().map(r -> toOut(r, indent)).collect(Collectors.joining(", "));
+        String ret = select.fetchClause().fetchItem().stream().map(r -> toOut(r, indent)).collect(Collectors.joining(", "));
         if (ret.length() > 0) {
             b.append(indent(indent) + "FETCH " + ret);
             b.append(System.lineSeparator());
@@ -243,7 +243,7 @@ public class KQLFormatter {
     }
 
 
-    private String toOut(KQLParser.ReturnItemContext ret, int indent) {
+    private String toOut(KQLParser.FetchItemContext ret, int indent) {
         StringBuilder b = new StringBuilder();
 
         b.append(toExpression(ret.expression(), indent));

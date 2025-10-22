@@ -122,14 +122,14 @@ public class KQL2Bean {
             }
         }
 
-        if (select.whereClause() != null) {
-            LogicalExpression node = toLogicalNode(select.whereClause().logical_expression());
+        if (select.filterClause() != null) {
+            LogicalExpression node = toLogicalNode(select.filterClause().logical_expression());
             node = Normalizer.normalize(node);
             bean.setFilter(node);
         }
-        if (select.returnClause() != null) {
+        if (select.filterClause() != null) {
             int idx = 1;
-            for (KQLParser.ReturnItemContext r : select.returnClause().returnItem()) {
+            for (KQLParser.FetchItemContext r : select.fetchClause().fetchItem()) {
                 Out o = toOut(r, idx);
                 start.getOut().add(o);
                 idx++;
@@ -189,7 +189,7 @@ public class KQL2Bean {
             throw new RuntimeException();
         }
     }
-    private Out toOut(KQLParser.ReturnItemContext ret, int idx) {
+    private Out toOut(KQLParser.FetchItemContext ret, int idx) {
 
         Out o = new Out();
         o.setIdx(idx);
