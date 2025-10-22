@@ -2,9 +2,9 @@
 // that are running low on inventory and may need restocking soon.
 
 FIND products p, p-categories c, p-suppliers s
-WHERE p.unit_price > (FIND products p2, p2-categories c2
-WHERE c2.category_name = c.category_name
-RETURN avg(p2.unit_price))
+FILTER p.unit_price > (FIND products p2, p2-categories c2
+FILTER c2.category_name = c.category_name
+FETCH avg(p2.unit_price))
 AND p.units_in_stock < p.reorder_level AND s.country IN ('USA', 'UK', 'Germany')
-RETURN s.company_name, c.category_name, p.product_name, p.unit_price, p.units_in_stock, p.reorder_level
+FETCH s.company_name, c.category_name, p.product_name, p.unit_price, p.units_in_stock, p.reorder_level
 ORDER p.unit_price DESC
