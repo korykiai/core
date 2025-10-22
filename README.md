@@ -60,9 +60,9 @@ With the help of published resources about koryki.ai, **kql**-grammar, and the e
 AI may create a query in **kql**-form:
 
     FIND customers c, c-orders o
-    WHERE count(o) > 10 AND 
+    FILTER count(o) > 10 AND 
         o.order_date BETWEEN DATE '2023-01-01' AND DATE '2023-01-31'
-    RETURN c.company_name, count(o)
+    FETCH c.company_name, count(o)
     ORDER count(o) DESC
 
 The same query in **iql**:
@@ -80,7 +80,7 @@ The same query in **iql**:
 
 
 Applied rules:
-1. resolve WHERE-Clause in FILTER or HAVING, in dependence on aggregation
+1. resolve FILTER-Clause into **iql**-FILTER or **iql**-HAVING, in dependence on aggregation
 2. add GROUP-BY-Clause where required
 3. resolve primary-key columns for identity in the count function
 
