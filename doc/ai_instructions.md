@@ -176,7 +176,7 @@ A good query block should either:
 
 ## Joins
 
-Joins are defined in WHERE Clause.
+Joins are defined in FILTER Clause.
 
 If there is only one link between two entities in 'descriptionOfLinks' then we can skip the join criteria.
 

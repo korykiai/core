@@ -28,7 +28,7 @@ Let's have a closer look on the example from README.md
     FETCH c.company_name, count(o)
     ORDER count(o) DESC
 
-In this query we use four of the major keywords: **FIND**, **WHERE**, **RETURN**, **ORDER**.
+In this query we use four of the major keywords: **FIND**, **FILTER**, **FETCH**, **ORDER**.
 
 ### FIND-Clause
 
@@ -84,7 +84,7 @@ Each unary logical expression resolve to true or false.
 
 Keyword **FETCH** is followed by a colon separated list of expressions the query should give as result-columns.
 
-Each return-expression can have an optional header.
+Each FETCH-expression can have an optional header.
 
 ### ORDER-Clause
 
@@ -92,7 +92,7 @@ Keyword **ORDER** is followed by a colon separated list of expressions to sort t
 
 ## Nested Queries
 
-We can uses nested queries in expression. Lets search for products priced higher than the average price of product category.
+We can use nested queries in expression. Let's search for products priced higher than the average price of product category.
 
     FIND products p, p-categories c, p-suppliers s
     FILTER p.unit_price > (
@@ -104,8 +104,8 @@ We can uses nested queries in expression. Lets search for products priced higher
     FETCH s.company_name, c.category_name, p.product_name, p.unit_price, p.units_in_stock, p.reorder_level
     ORDER p.unit_price DESC
 
-The first expression in WHERE-Clause selects the avarage price of product category.
-Have a look at nested WHERE-Clause. We can compare category_names from inside and outside nested query.
+The first expression in FILTER-Clause selects the average price of product category.
+Have a look at nested FILTER-Clause. We can compare category_names from inside and outside nested query.
 Entities defined in the enclosing query are visible in the nested query.
 
 ## Set-Operation
