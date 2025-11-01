@@ -155,7 +155,7 @@ public class Bean2Sql {
 
         b.append(selectClause(select, indent));
         b.append(fromClause(select, indent));
-        b.append(whereClause(select, indent));
+        b.append(filterClause(select, indent));
 
         b.append(groupbyClause(select, indent));
         b.append(havingClause(select, indent));
@@ -272,8 +272,8 @@ public class Bean2Sql {
         return "";
     }
 
-    private String whereClause(Select select, int indent) {
-        String w = whereClause(select.getStart(), select.getJoin(), select.getFilter(), indent);
+    private String filterClause(Select select, int indent) {
+        String w = filterClause(select.getStart(), select.getJoin(), select.getFilter(), indent);
 
         if (!w.isEmpty()) {
             String r = indent(indent) + "WHERE" + System.lineSeparator();
@@ -282,7 +282,7 @@ public class Bean2Sql {
         return "";
     }
 
-    private String whereClause(Table start, List<Join> join, LogicalExpression filter, int indent) {
+    private String filterClause(Table start, List<Join> join, LogicalExpression filter, int indent) {
         StringBuilder b = new StringBuilder();
 
         List<LogicalExpression> filters = new ArrayList<>();
@@ -587,7 +587,7 @@ public class Bean2Sql {
 
         b.append(fromClause(exists.getTable(), exists.getJoin(), indent));
 
-        String w = whereClause(exists.getTable(), exists.getJoin(), null, indent);
+        String w = filterClause(exists.getTable(), exists.getJoin(), null, indent);
 
         String j = joinCols(left, exists, indent + 1);
 
